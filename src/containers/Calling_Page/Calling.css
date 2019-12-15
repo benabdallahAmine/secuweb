@@ -1,0 +1,20 @@
+.Center {
+    text-align: center;
+    margin-top: 140px;
+
+}
+
+.Rectangle {
+    display: inline-block;
+    width: 800px;
+    height: 600px;
+    border: none;
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin: 10px;
+    color: #66FCF1;
+    background-color: black;
+    text-align: center;
+    align-items: center;
+}
