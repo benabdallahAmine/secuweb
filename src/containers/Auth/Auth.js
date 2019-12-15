@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Input} from 'reactstrap';
-import { SocialIcon } from 'react-social-icons';
+import { Link } from 'react-router-dom';
 
 import styles from './Auth.css';
+import { Button, Form, FormGroup, Input} from 'reactstrap';
+import { SocialIcon } from 'react-social-icons';
 
 class Auth extends Component { 
 	render () {
@@ -20,7 +21,9 @@ class Auth extends Component {
 				<SocialIcon className="mt-3 mb-3" network="google" />
 				<SocialIcon className="mt-3 mb-3" network="facebook" />
 				<div className="text-center">
-					<a>Creat New Account</a>
+					<Link to="/Register">
+						<a>Creat New Account</a>
+					</Link>
 				</div>
 			</Form>
 		);

@@ -1,128 +1,30 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Register.css';
+import { Button, Form, FormGroup, Input} from 'reactstrap';
+import { SocialIcon } from 'react-social-icons';
 
-export default function AddressForm() {
-  return (
-    <React.Fragment>
-        <form className={styles.Register}>
-            <div className={styles.logoName}>Register</div>
-            <Grid container spacing={3} className={styles.textField}>
-                <Grid item xs={12} sm={6}>
-                <TextField
-                    required
-                    id="firstName"
-                    name="firstName"
-                    label="First name"
-                    fullWidth
-                    autoComplete="fname"
-                />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                <TextField
-                    required
-                    id="lastName"
-                    name="lastName"
-                    label="Last name"
-                    fullWidth
-                    autoComplete="lname"
-                />
-                </Grid>
-                <Grid item xs={12}>
-                <TextField
-                    required
-                    id="email"
-                    type="email"
-                    label="Email"
-                    fullWidth
-                    autoComplete="email"
-                />
-                </Grid>
-                <Grid item xs={12}>
-                <TextField
-                    required
-                    id="standard-password-input"
-                    type="password"
-                    label="Password"
-                    fullWidth
-                    autoComplete="current-password"
-                />
-                </Grid>
-                <Grid item xs={12}>
-                <TextField
-                    required
-                    id="standard-number"
-                    label="Number"
-                    type="number"
-                    fullWidth
-                    autoComplete="current-number"
-                />
-                </Grid>
-                <Grid item xs={12}>
-                <TextField
-                    required
-                    id="address1"
-                    name="address1"
-                    label="Address line 1"
-                    fullWidth
-                    autoComplete="billing address-line1"
-                />
-                </Grid>
-                <Grid item xs={12}>
-                <TextField
-                    id="address2"
-                    name="address2"
-                    label="Address line 2"
-                    fullWidth
-                    autoComplete="billing address-line2"
-                />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                <TextField
-                    required
-                    id="city"
-                    name="city"
-                    label="City"
-                    fullWidth
-                    autoComplete="billing address-level2"
-                />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                <TextField id="state" name="state" label="State/Province/Region" fullWidth />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                <TextField
-                    required
-                    id="zip"
-                    name="zip"
-                    label="Zip / Postal code"
-                    fullWidth
-                    autoComplete="billing postal-code"
-                />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                <TextField
-                    required
-                    id="country"
-                    name="country"
-                    label="Country"
-                    fullWidth
-                    autoComplete="billing country"
-                />
-                </Grid>
-                <Grid item xs={12}>
-                <TextField 
-                    required
-                    type="file" 
-                    name="file" 
-                    id="exampleFile"
-                    fullWidth
-                />
-                </Grid>
-            </Grid>
-        </form>
-    </React.Fragment>
-  );
+class Register extends Component { 
+	render () {
+		return (
+			<Form className={styles.loginForm}>
+				<h1><span className={styles.logoName}>Register</span></h1>
+				<FormGroup>
+					<Input type="email" placeholder="Email"></Input>
+				</FormGroup>
+				<FormGroup>
+					<Input type="password" placeholder="Password"></Input>
+				</FormGroup>
+				<Link to ="/Info">
+					<Button className={styles.Button}>Sign In</Button>
+				</Link>
+				<div className="text-center pt-3">Or Log In with</div>
+				<SocialIcon className="mt-3 mb-3" network="google" />
+				<SocialIcon className="mt-3 mb-3" network="facebook" />
+			</Form>
+		);
+	}
 }
+
+export default Register;
