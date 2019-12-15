@@ -7,6 +7,7 @@ import Call from './containers/Call_Page/Call/Call';
 import Calling from './containers/Calling_Page/Calling';
 import Auth from './containers/Auth/Auth';
 import Register from './containers/Register/Register';
+import Info from './containers/Info/Info';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
       <div id='root'>
         <Navbar />
         <Switch>
+          <Route path="/Info" component={Info} />
           <Route path="/Register" component={Register} />
           <Route path="/Auth" component={Auth} />
           <Route path="/Calling" component={Calling} />

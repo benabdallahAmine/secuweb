@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+.Register{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 600px;
+}
+
+.textField {
+    padding: 15px;
+}
+
+.logoName {
+    font-family:'Lobster';
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.textField {
+    background-color: #C8C8C8;
+}

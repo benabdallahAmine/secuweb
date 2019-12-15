@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input} from 'reactstrap';
 import { SocialIcon } from 'react-social-icons';
 import { auth } from "../firebase";
+import { Link } from 'react-router-dom';
 import styles from './Auth.css';
+import { Button, Form, FormGroup, Input} from 'reactstrap';
+import { SocialIcon } from 'react-social-icons';
 
 const INITIAL_STATE = {
 	email: "",
 	password: "",
 };
-  
 
 class Auth extends Component {
 	state = { ...INITIAL_STATE };
@@ -53,7 +55,9 @@ class Auth extends Component {
 				<SocialIcon className="mt-3 mb-3" network="google" onClick={this.googleLogin}/>
 				<SocialIcon className="mt-3 mb-3" network="facebook" />
 				<div className="text-center">
-					<a>Creat New Account</a>
+					<Link to="/Register">
+						<a>Creat New Account</a>
+					</Link>
 				</div>
 			</Form>
 		);

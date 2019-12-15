@@ -1,243 +1,62 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Register.css';
-
+import { Button, Form, FormGroup, Input} from 'reactstrap';
+import { SocialIcon } from 'react-social-icons';
 
 const INITIAL_STATE = {
-    email: "",
-    password: "",
-    firstName: "",
-    lastName: "",
-    number: "",
-    addressOne: "",
-    addressTwo: "",
-    city: "",
-    zip: "",
-    country: "",
-    file: ""
-  };
+	email: "",
+	password: "",
+};
 
-// nice way of changing properties
-const byPropKey = (propertyName, value) => () => ({
-    [propertyName]: value
-});
-
-
-class Register extends Component {
-    state = {
-        ...INITIAL_STATE
-    };
+class Register extends Component { 
+    state = { ...INITIAL_STATE };
 
     onSubmit = event => {
-        const { email, password, firstName, lastName,
-            number,addressOne,addressTwo,city,zip,country,file} = this.state;
-        const { history } = this.props;
+		const { email, password } = this.state;
+		auth
+		  .doCreateUserWithEmailAndPassword(email, password)
+		  .then((authUser) => {
+			console.log("Standard Login auth " + error)
+		  })
+		  .catch(error => {
+			  console.log("Standard Login error " + error)
+		  });
+	
+		event.preventDefault();
+	};
 
-        auth
-          .doCreateUserWithEmailAndPassword(email, password)
-          .then(authUser => {
-            db.doCreateUser(authUser.user.uid, username, email)
-              .then(() => {
-                this.setState({
-                  ...INITIAL_STATE
-                });
-                
-                // Redirect to home page
-                history.push(routes.HOME);
-              })
-              .catch(error => {
-                this.setState(byPropKey("error", error));
-                this.timer();
-              });
-          })
-          .catch(err => {
-            this.setState(byPropKey("error", err));
-            this.timer();
-          });
-    
-        event.preventDefault();
-      };
+	googleLogin = () => {
+		auth
+		  .doGoogleSignIn()
+		  .then(authUser => {
+			console.log("Google Login auth: " + authUser);
+		  })
+		  .catch(error => {
+			  console.log("Google Login error: " + error);
+		  });
+	};
 
-    timer = () => {
-        this.setState({
-            showingAlert: true
-        });
-        setTimeout(() => {
-            this.setState({
-            showingAlert: false
-            });
-        }, 4000);
-    };
-
-
-    render () {
-        return (
-            <React.Fragment>
-                <form className={styles.Register}>
-                    <div className={styles.logoName}>Register</div>
-                    <Grid container spacing={3} className={styles.textField}>
-                        <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="firstName"
-                            name="firstName"
-                            label="First name"
-                            fullWidth
-                            autoComplete="fname"
-                            value={firstName}
-                            onChange={e =>
-                              this.setState(byPropKey("firstName", e.target.value))
-                            }
-                        />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="lastName"
-                            name="lastName"
-                            label="Last name"
-                            fullWidth
-                            autoComplete="lname"
-                            value={lastName}
-                            onChange={e =>
-                              this.setState(byPropKey("lastName", e.target.value))
-                            }
-                        />
-                        </Grid>
-                        <Grid item xs={12}>
-                        <TextField
-                            required
-                            id="email"
-                            type="email"
-                            label="Email"
-                            fullWidth
-                            autoComplete="email"
-                            value={email}
-                            onChange={e =>
-                              this.setState(byPropKey("email", e.target.value))
-                            }
-                        />
-                        </Grid>
-                        <Grid item xs={12}>
-                        <TextField
-                            required
-                            id="standard-password-input"
-                            type="password"
-                            label="Password"
-                            fullWidth
-                            autoComplete="current-password"
-                            value={password}
-                            onChange={e =>
-                              this.setState(byPropKey("password", e.target.value))
-                            }
-                        />
-                        </Grid>
-                        <Grid item xs={12}>
-                        <TextField
-                            required
-                            id="standard-number"
-                            label="Number"
-                            type="number"
-                            fullWidth
-                            autoComplete="current-number"
-                            value={number}
-                            onChange={e =>
-                              this.setState(byPropKey("number", e.target.value))
-                            }
-                        />
-                        </Grid>
-                        <Grid item xs={12}>
-                        <TextField
-                            required
-                            id="address1"
-                            name="address1"
-                            label="Address line 1"
-                            fullWidth
-                            autoComplete="billing address-line1"
-                            value={addressOne}
-                            onChange={e =>
-                              this.setState(byPropKey("addressOne", e.target.value))
-                            }
-                        />
-                        </Grid>
-                        <Grid item xs={12}>
-                        <TextField
-                            id="address2"
-                            name="address2"
-                            label="Address line 2"
-                            fullWidth
-                            autoComplete="billing address-line2"
-                            value={adressTwo}
-                            onChange={e =>
-                              this.setState(byPropKey("addressTwo", e.target.value))
-                            }
-                        />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="city"
-                            name="city"
-                            label="City"
-                            fullWidth
-                            autoComplete="billing address-level2"
-                            value={city}
-                            onChange={e =>
-                              this.setState(byPropKey("city", e.target.value))
-                            }
-                        />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                        <TextField id="state" name="state" label="State/Province/Region" fullWidth />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="zip"
-                            name="zip"
-                            label="Zip / Postal code"
-                            fullWidth
-                            autoComplete="billing postal-code"
-                            value={zip}
-                            onChange={e =>
-                              this.setState(byPropKey("zip", e.target.value))
-                            }
-                        />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="country"
-                            name="country"
-                            label="Country"
-                            fullWidth
-                            autoComplete="billing country"
-                            value={country}
-                            onChange={e =>
-                              this.setState(byPropKey("country", e.target.value))
-                            }
-                        />
-                        </Grid>
-                        <Grid item xs={12}>
-                        <TextField 
-                            required
-                            type="file" 
-                            name="file" 
-                            id="exampleFile"
-                            fullWidth
-                            value={password}
-                            onChange={e =>
-                              this.setState(byPropKey("file", e.target.value))
-                            }
-                        />
-                        </Grid>
-                    </Grid>
-                </form>
-            </React.Fragment>
-        );
-    }
+	render () {
+		return (
+			<Form className={styles.loginForm}>
+				<h1><span className={styles.logoName}>Register</span></h1>
+				<FormGroup>
+					<Input type="email" placeholder="Email"></Input>
+				</FormGroup>
+				<FormGroup>
+					<Input type="password" placeholder="Password"></Input>
+				</FormGroup>
+				<Link to ="/Info">
+					<Button className={styles.Button}>Register</Button>
+				</Link>
+				<div className="text-center pt-3">Or Register with</div>
+				<SocialIcon className="mt-3 mb-3" network="google" onClick={this.googleLogin}/>
+				<SocialIcon className="mt-3 mb-3" network="facebook" />
+			</Form>
+		);
+	}
 }
 
 export default Register;
