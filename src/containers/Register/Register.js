@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import styles from './Register.css';
 import { Button, Form, FormGroup, Input} from 'reactstrap';
-import { SocialIcon } from 'react-social-icons';
 
 class Register extends Component { 
 	render () {
@@ -20,8 +19,10 @@ class Register extends Component {
 					<Button className={styles.Button}>Sign In</Button>
 				</Link>
 				<div className="text-center pt-3">Or Log In with</div>
-				<SocialIcon className="mt-3 mb-3" network="google" />
-				<SocialIcon className="mt-3 mb-3" network="facebook" />
+				<div className={styles.FacebookGoogle}>
+					<Button >Sign In with Google</Button>
+					<Button >Sign In with Facebook</Button>
+				</div>
 			</Form>
 		);
 	}

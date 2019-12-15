@@ -40,3 +40,18 @@
 .loginForm div a {
     color: black;
 }
+
+.FacebookGoogle Button {
+    border-radius: 1.5625em;
+    border: 1px solid black;    
+    width: 100%;
+    max-width: 350px;
+    background-color: #C8C8C8;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.Google {
+}
