@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component }  from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-
 import styles from './Info.css';
 import { Button } from 'reactstrap';
+var request = require('ajax-request');
 
 
 const INITIAL_STATE = {
@@ -23,36 +23,114 @@ const byPropKey = (propertyName, value) => () => ({
     [propertyName]: value
 });
 
+const encodeGetParams = p => 
+  Object.entries(p).map(kv => kv.map(encodeURIComponent).join("=")).join("&");
 
+// TODO: phone number nationality
+// TODO: civility?
 class Info extends Component {
     state = {
         ...INITIAL_STATE
     };
 
     onSubmit = event => {
-        const {firstName, lastName,
-            number,addressOne,addressTwo,city,zip,country,file} = this.state;
-        const { history } = this.props;
+        const { firstName, lastName, 
+            number, addressOne, addressTwo, city, zip, country, file } = this.state;
+        
+        const firebaseId = sessionStorage.getItem('firebase_id');
+        const email = sessionStorage.getItem('email');
+        
+        // Create a user in the database
+        const values = {
+            'email': email,
+            'phone_number': number,
+            'phone_number_nationality': 'FI',
+            'first_name': firstName,
+            'last_name': lastName,
+            'civility': '',
+            'street': addressOne + "\n"+ addressTwo,
+            'zip': zip,
+            'city': city,
+            'country': country
+        }
 
-        db.doCreateUser(authUser.user.uid, username, email)
-        .then(() => {
-          this.setState({
-            ...INITIAL_STATE
-          });
-        })
-        .catch(error => {
-            console.log("DB error: " + error);
-        });
+        const options = {
+            headers: {
+              'Content-type': 'application/json',
+              'Accept': 'application/json',
+              'Access-Control-Allow-Origin' : "*"
+            },
+            method: 'GET'
+        }
+        
+        // Add User
+        fetch('http://127.0.0.1:5000/add_user?' + encodeGetParams(values), options)
+            .then(response => {
+                return response.text()
+            })
+            .then(response => {
+                console.log("Got response" + response);
+                const data = JSON.parse(response);
+                console.log(data);
 
+                if (data[1] != 200) {
+                    console.log("Message: " + data[0].message)
+                    console.log("Error");
+                    return;
+                }
 
-    
+                // Store the JWT tokens
+                sessionStorage.setItem("access_token", data[0].access_token);
+                sessionStorage.setItem("refresh_token", data[0].refresh_token);
+
+                this.setState({
+                    ...INITIAL_STATE
+                });
+
+                // Upload the identification
+                const fileUploadOption = {
+                    headers: {
+                      'Content-type': 'multipart/form-data',
+                      'Access-Control-Allow-Origin': '*',
+                      'Referrer-Policy': 'origin-when-cross-origin',
+                      'Authorization': 'Bearer ' + sessionStorage.getItem("access_token")
+                    },
+                    method: 'POST',
+                    body: {
+                        "file" : file
+                    }
+                }
+
+                const identification_params = {
+                    "email": email
+                }
+
+                fetch('http://127.0.0.1:5000/upload_user_identification?'+ encodeGetParams(identification_params), fileUploadOption)
+                    .then(response => {
+                        return response.text()
+                    })
+                    .then(response => {
+                        console.log("File uploaded: " + response);
+                    })
+                    .catch(error => {
+                        console.log("File Upload Error: " + error);
+                    })
+
+            })
+            .catch(error => {
+                console.log("DB error: " + error);
+            })
+
         event.preventDefault();
     };
 
     render () {
+        const { firstName, lastName, 
+            number, addressOne, addressTwo, city, zip, country, file } = this.state;
+
         return (
             <React.Fragment>
-                <form className={styles.Register}>
+                <form className={styles.Register} onSubmit={this.onSubmit}>
                     <div className={styles.logoName}>Info</div>
                     <Grid container spacing={3} className={styles.textField}>
                         <Grid item xs={12} sm={6}>

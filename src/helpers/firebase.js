@@ -17,7 +17,6 @@ if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 
-//separting database API and authentication
 const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
