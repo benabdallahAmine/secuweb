@@ -18,7 +18,7 @@ class Register extends Component {
 					<Input type="password" placeholder="Password"></Input>
 				</FormGroup>
 				<Link to ="/Info">
-					<Button className={styles.Button}>Sign In</Button>
+					<Button className={styles.Button}>Register</Button>
 				</Link>
 				<div className={styles.line}><span>Or LogIn with</span></div>
 				<div className={styles.FacebookGoogle}>

@@ -31,3 +31,8 @@
     border: 1px solid black;
     border-radius: 1.5625em;
 }
+
+.Button:hover {
+    color: black;
+    background-color: #66FCF1;
+}

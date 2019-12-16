@@ -37,6 +37,11 @@
     border-radius: 1.5625em;
 }
 
+.Button:hover {
+    color: black;
+    background-color: #66FCF1;
+}
+
 .loginForm div a {
     color: black;
 }
@@ -53,6 +58,10 @@
     margin-top: 10px;
 }
 
+.FacebookGoogle Button:hover {
+    color: black;
+    background-color: #66FCF1;
+}
 .Google{
     border-radius: 99999px;
     width: 24px;
