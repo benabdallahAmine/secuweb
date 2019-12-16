@@ -9,12 +9,12 @@ export default function AddressForm() {
   return (
     <React.Fragment>
         <form className={styles.Register}>
-            <div className={styles.logoName}>Info</div>
+            <div className={styles.logoName}>Personal Info</div>
             <Grid container spacing={3} className={styles.textField}>
                 <Grid item xs={12} sm={6}>
                 <TextField
                     required
-                    id="firstName"
+                    id="outlined-basic"
                     name="firstName"
                     label="First name"
                     fullWidth
@@ -93,16 +93,27 @@ export default function AddressForm() {
                     autoComplete="billing country"
                 />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={6}>
+                <TextField 
+                    required
+                    defaultValue="Upload Passport/ID"
+                    id="passportId"
+                    fullWidth
+                />
+                </Grid>
+                <Grid item xs={12} sm={6}>
                 <TextField 
                     required
                     type="file" 
                     name="file" 
                     id="exampleFile"
+                    color="black"
                     fullWidth
                 />
                 </Grid>
+                <Grid item xs={12}>
                 <Button className={styles.Button}>Send</Button>
+                </Grid>
             </Grid>
         </form>
     </React.Fragment>

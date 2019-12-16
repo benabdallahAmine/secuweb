@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import styles from './Register.css';
 import { Button, Form, FormGroup, Input} from 'reactstrap';
+import Google from '../../assets/images/Google.png';
+import Facebook from '../../assets/images/Facebook.png';
 
 class Register extends Component { 
 	render () {
@@ -18,10 +20,10 @@ class Register extends Component {
 				<Link to ="/Info">
 					<Button className={styles.Button}>Sign In</Button>
 				</Link>
-				<div className="text-center pt-3">Or Log In with</div>
+				<div className={styles.line}><span>Or LogIn with</span></div>
 				<div className={styles.FacebookGoogle}>
-					<Button >Sign In with Google</Button>
-					<Button >Sign In with Facebook</Button>
+					<Button ><img src={Google} className={styles.Google}/>Sign In with Google</Button>
+					<Button ><img src={Facebook} className={styles.Facebook}/>Sign In with Facebook</Button>
 				</div>
 			</Form>
 		);
