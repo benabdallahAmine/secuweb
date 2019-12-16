@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { auth, googleProvider } from "../../helpers/firebase";
+import { auth, googleProvider, faceProvider } from "../../helpers/firebase";
 import styles from './Register.css';
 import { Button, Form, FormGroup, Input} from 'reactstrap';
 import Google from '../../assets/images/Google.png';
@@ -55,11 +55,28 @@ class Register extends Component {
 		  });
 	};
 
+	faceLogin = () => {
+		console.log("face")
+		auth
+		  .signInWithPopup(faceProvider)
+		  .then(data => {
+			console.log("Facebook Login auth: " + data);
+			console.log("Facebook User ID :", data.user.uid);
+			sessionStorage.setItem('firebase_id', data.user.uid);
+			this.getRefreshToken();
+			// We go to the home page
+			this.props.history.push("");
+		  })
+		  .catch(error => {
+			  console.log("Facebook Login error: " + error);
+		  });
+	};
+
 	render () {
 		const { email, password} = this.state;
 
 		return (
-			<Form className={styles.loginForm} onSubmit={this.onSubmit}>
+			<Form className={styles.loginForm}>
 				<h1><span className={styles.logoName}>Register</span></h1>
 				<FormGroup>
 					<Input type="email" 
@@ -78,12 +95,12 @@ class Register extends Component {
 					}></Input>
 				</FormGroup>
 				<Link to ="/Info">
-					<Button className={styles.Button}>Register</Button>
+					<Button className={styles.Button} onSubmit={this.onSubmit}>Register</Button>
 				</Link>
 				<div className={styles.line}><span>Or LogIn with</span></div>
 				<div className={styles.FacebookGoogle}>
 					<Button ><img src={Google} className={styles.Google} onClick={this.googleLogin}/>Sign In with Google</Button>
-					<Button ><img src={Facebook} className={styles.Facebook}/>Sign In with Facebook</Button>
+					<Button ><img src={Facebook} className={styles.Facebook} onClick={this.faceLogin}/>Sign In with Facebook</Button>
 				</div>
 			</Form>
 		);

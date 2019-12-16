@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input} from 'reactstrap';
 import { SocialIcon } from 'react-social-icons';
-import { auth, googleProvider } from "../../helpers/firebase";
+import { auth, googleProvider, faceProvider } from "../../helpers/firebase";
 import { Link } from 'react-router-dom';
 import styles from './Auth.css';
 
@@ -41,7 +41,7 @@ class Auth extends Component {
 				const data = JSON.parse(response);
 				console.log(data);
 
-				if (data[1] != 200) {
+				if (data[1] !== 200) {
 					console.log("Message: " + data[0].message)
 					console.log("Error");
 					return;
@@ -95,6 +95,39 @@ class Auth extends Component {
 		  });
 	};
 
+	googleLogin = () => {
+		auth
+		  .signInWithPopup(googleProvider)
+		  .then(data => {
+			console.log("Google Login auth: " + data);
+			console.log("Firebase User ID :", data.user.uid);
+			sessionStorage.setItem('firebase_id', data.user.uid);
+			this.getRefreshToken();
+			// We go to the home page
+			this.props.history.push("");
+		  })
+		  .catch(error => {
+			  console.log("Google Login error: " + error);
+		  });
+	};
+
+	faceLogin = () => {
+		console.log("face")
+		auth
+		  .signInWithPopup(faceProvider)
+		  .then(data => {
+			console.log("Facebook Login auth: " + data);
+			console.log("Facebook User ID :", data.user.uid);
+			sessionStorage.setItem('firebase_id', data.user.uid);
+			this.getRefreshToken();
+			// We go to the home page
+			this.props.history.push("");
+		  })
+		  .catch(error => {
+			  console.log("Facebook Login error: " + error);
+		  });
+	};
+
 	render () {
 		return (
 			<Form className={styles.loginForm}>
@@ -108,7 +141,7 @@ class Auth extends Component {
 				<Button className={styles.Button}>Sign In</Button>
 				<div className="text-center pt-3">Or login with</div>
 				<SocialIcon className="mt-3 mb-3" network="google" onClick={this.googleLogin}/>
-				<SocialIcon className="mt-3 mb-3" network="facebook" />
+				<SocialIcon className="mt-3 mb-3" network="facebook" onClick={this.faceLogin}/>
 				<div className="text-center">
 					<Link to="/Register">
 						<a>Creat New Account</a>
