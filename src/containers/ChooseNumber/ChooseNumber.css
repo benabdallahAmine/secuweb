@@ -3,7 +3,7 @@
 
 .loginForm {
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
     padding: 15px;
     margin: auto;
     height: 100%;
@@ -18,12 +18,15 @@
     font-weight: bold;
 }
 
-.loginForm input {
-    background-color: #C8C8C8;
-    border: 1px solid black;
+.loginForm select {
+    font-family:'Lobster';
+    background-color: black;
+    border: 2px solid black;
+    color: #66FCF1;
     margin-top: 20px;
     font-weight: bold;
-    border-radius: 8px;
+    width: 300px;
+    height: 40px;
 }
 
 .Button {
@@ -34,15 +37,5 @@
     background-color: #C8C8C8;
     margin-top: 10px;
     border: 1px solid black;
-    border-radius: 8px;
-}
-
-.Button:hover {
-    color: black;
-    font-weight: bold;
-    background-color: #66FCF1;
-}
-
-.loginForm div a {
-    color: black;
+    border-radius: 1.5625em;
 }

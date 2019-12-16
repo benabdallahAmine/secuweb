@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { auth, googleProvider } from "../../helpers/firebase";
 import styles from './Register.css';
 import { Button, Form, FormGroup, Input} from 'reactstrap';
-import { SocialIcon } from 'react-social-icons';
+import Google from '../../assets/images/Google.png';
+import Facebook from '../../assets/images/Facebook.png';
 
 const INITIAL_STATE = {
 	email: "",
@@ -76,10 +77,14 @@ class Register extends Component {
 					  this.setState(byPropKey("password", e.target.value))
 					}></Input>
 				</FormGroup>
-				<Button className={styles.Button}>Register</Button>
-				<div className="text-center pt-3">Or Register with</div>
-				<SocialIcon className="mt-3 mb-3" network="google" onClick={this.googleLogin}/>
-				<SocialIcon className="mt-3 mb-3" network="facebook" />
+				<Link to ="/Info">
+					<Button className={styles.Button}>Register</Button>
+				</Link>
+				<div className={styles.line}><span>Or LogIn with</span></div>
+				<div className={styles.FacebookGoogle}>
+					<Button ><img src={Google} className={styles.Google} onClick={this.googleLogin}/>Sign In with Google</Button>
+					<Button ><img src={Facebook} className={styles.Facebook}/>Sign In with Facebook</Button>
+				</div>
 			</Form>
 		);
 	}

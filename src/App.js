@@ -8,6 +8,7 @@ import Calling from './containers/Calling_Page/Calling';
 import Auth from './containers/Auth/Auth';
 import Register from './containers/Register/Register';
 import Info from './containers/Info/Info';
+import ChooseNumber from './containers/ChooseNumber/ChooseNumber';
 
 class App extends Component {
   render() {
@@ -15,11 +16,12 @@ class App extends Component {
       <div id='root'>
         <Navbar />
         <Switch>
+          <Route path="/ChooseNumber" component={ChooseNumber} />
+          <Route path="/Calling" component={Calling} />
+          <Route path="/Call" component={Call} />
           <Route path="/Info" component={Info} />
           <Route path="/Register" component={Register} />
           <Route path="/Auth" component={Auth} />
-          <Route path="/Calling" component={Calling} />
-          <Route path="/Call" component={Call} />
           <Route path="/" exact component={Page1} />
         </Switch>
       </div>

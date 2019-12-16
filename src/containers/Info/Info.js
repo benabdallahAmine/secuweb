@@ -131,19 +131,19 @@ class Info extends Component {
         return (
             <React.Fragment>
                 <form className={styles.Register} onSubmit={this.onSubmit}>
-                    <div className={styles.logoName}>Info</div>
+                    <div className={styles.logoName}>Personal Info</div>
                     <Grid container spacing={3} className={styles.textField}>
                         <Grid item xs={12} sm={6}>
                         <TextField
                             required
-                            id="firstName"
+                            id="outlined-basic"
                             name="firstName"
                             label="First name"
                             fullWidth
                             autoComplete="fname"
                             value={firstName}
                             onChange={e =>
-                              this.setState(byPropKey("firstName", e.target.value))
+                                this.setState(byPropKey("firstName", e.target.value))
                             }
                         />
                         </Grid>
@@ -157,7 +157,7 @@ class Info extends Component {
                             autoComplete="lname"
                             value={lastName}
                             onChange={e =>
-                              this.setState(byPropKey("lastName", e.target.value))
+                                this.setState(byPropKey("lastName", e.target.value))
                             }
                         />
                         </Grid>
@@ -171,7 +171,7 @@ class Info extends Component {
                             autoComplete="current-number"
                             value={number}
                             onChange={e =>
-                              this.setState(byPropKey("number", e.target.value))
+                                this.setState(byPropKey("number", e.target.value))
                             }
                         />
                         </Grid>
@@ -185,7 +185,7 @@ class Info extends Component {
                             autoComplete="billing address-line1"
                             value={addressOne}
                             onChange={e =>
-                              this.setState(byPropKey("addressOne", e.target.value))
+                                this.setState(byPropKey("addressOne", e.target.value))
                             }
                         />
                         </Grid>
@@ -198,7 +198,7 @@ class Info extends Component {
                             autoComplete="billing address-line2"
                             value={addressTwo}
                             onChange={e =>
-                              this.setState(byPropKey("addressTwo", e.target.value))
+                                this.setState(byPropKey("addressTwo", e.target.value))
                             }
                         />
                         </Grid>
@@ -212,7 +212,7 @@ class Info extends Component {
                             autoComplete="billing address-level2"
                             value={city}
                             onChange={e =>
-                              this.setState(byPropKey("city", e.target.value))
+                                this.setState(byPropKey("city", e.target.value))
                             }
                         />
                         </Grid>
@@ -229,7 +229,7 @@ class Info extends Component {
                             autoComplete="billing postal-code"
                             value={zip}
                             onChange={e =>
-                              this.setState(byPropKey("zip", e.target.value))
+                                this.setState(byPropKey("zip", e.target.value))
                             }
                         />
                         </Grid>
@@ -243,20 +243,31 @@ class Info extends Component {
                             autoComplete="billing country"
                             value={country}
                             onChange={e =>
-                              this.setState(byPropKey("country", e.target.value))
+                            this.setState(byPropKey("country", e.target.value))
                             }
                         />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} sm={6}>
+                        <TextField 
+                            required
+                            defaultValue="Upload Passport/ID"
+                            id="passportId"
+                            fullWidth
+                        />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
                         <TextField 
                             required
                             type="file" 
                             name="file" 
                             id="exampleFile"
+                            color="black"
                             fullWidth
                         />
                         </Grid>
+                        <Grid item xs={12}>
                         <Button className={styles.Button}>Send</Button>
+                        </Grid>
                     </Grid>
                 </form>
             </React.Fragment>
