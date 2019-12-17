@@ -46,3 +46,16 @@
 .loginForm div a {
     color: black;
 }
+
+.Facebook {
+    margin-top: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}    
+.Google {
+    margin-top: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+}

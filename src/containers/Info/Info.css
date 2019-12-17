@@ -36,3 +36,18 @@
     color: black;
     background-color: #66FCF1;
 }
+
+
+@media (max-width: 650px) {
+    .Register {
+        width: 500px;
+    }
+}
+
+@media (max-width: 597px) {
+    .Register {
+        width: 448px;
+        margin-top: 30px;
+    }
+
+}

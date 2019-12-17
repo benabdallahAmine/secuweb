@@ -21,8 +21,8 @@ class App extends Component {
           <Route path="/Call" component={Call} />
           <Route path="/Info" component={Info} />
           <Route path="/Register" component={Register} />
-          <Route path="/Auth" component={Auth} />
-          <Route path="/" exact component={Page1} />
+          <Route path="/Page1" exact component={Page1} />
+          <Route path="/" exact component={Auth} />
         </Switch>
       </div>
     );

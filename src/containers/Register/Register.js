@@ -97,7 +97,7 @@ class Register extends Component {
 				<Link to ="/Info">
 					<Button className={styles.Button} onSubmit={this.onSubmit}>Register</Button>
 				</Link>
-				<div className={styles.line}><span>Or LogIn with</span></div>
+				<div className={styles.line}><span>Or Sign In with</span></div>
 				<div className={styles.FacebookGoogle}>
 					<Button ><img src={Google} className={styles.Google} onClick={this.googleLogin}/>Sign In with Google</Button>
 					<Button ><img src={Facebook} className={styles.Facebook} onClick={this.faceLogin}/>Sign In with Facebook</Button>

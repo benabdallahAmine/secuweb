@@ -123,7 +123,6 @@ class Info extends Component {
 
         event.preventDefault();
     };
-
     render () {
         const { firstName, lastName, 
             number, addressOne, addressTwo, city, zip, country, file } = this.state;
@@ -166,7 +165,7 @@ class Info extends Component {
                             required
                             id="standard-number"
                             label="Number"
-                            type="number"
+                            type="tel"
                             fullWidth
                             autoComplete="current-number"
                             value={number}
