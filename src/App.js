@@ -7,7 +7,7 @@ import Call from './containers/Call_Page/Call/Call';
 import Calling from './containers/Calling_Page/Calling';
 import Auth from './containers/Auth/Auth';
 import Register from './containers/Register/Register';
-import Info from './containers/Info/Info';
+import AccountSettings from './containers/AccountSettings/AccountSettings';
 import ChooseNumber from './containers/ChooseNumber/ChooseNumber';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
           <Route path="/ChooseNumber" component={ChooseNumber} />
           <Route path="/Calling" component={Calling} />
           <Route path="/Call" component={Call} />
-          <Route path="/Info" component={Info} />
+          <Route path="/AccountSettings" component={AccountSettings} />
           <Route path="/Register" component={Register} />
           <Route path="/Page1" exact component={Page1} />
           <Route path="/" exact component={Auth} />

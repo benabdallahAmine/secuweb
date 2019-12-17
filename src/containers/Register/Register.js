@@ -30,7 +30,7 @@ class Register extends Component {
 			sessionStorage.setItem('firebase_id', data.user.uid);
 			sessionStorage.setItem('email', data.user.email);
 			// We go to the info page
-			this.props.history.push("info");
+			this.props.history.push("AccountSettings");
 		  })
 		  .catch(error => {
 			  console.log("Standard Login error " + error);
@@ -39,7 +39,8 @@ class Register extends Component {
 		event.preventDefault();
 	};
 
-	googleLogin = () => {
+	googleLogin = event => {
+		console.log("googe")
 		auth
 		  .signInWithPopup(googleProvider)
 		  .then(data => {
@@ -48,15 +49,16 @@ class Register extends Component {
 			sessionStorage.setItem('firebase_id', data.user.uid);
 			sessionStorage.setItem('email', data.user.email);
 			// We go to the info page
-			this.props.history.push("info");
+			this.props.history.push("AccountSettings");
 		  })
 		  .catch(error => {
 			  console.log("Google Login error: " + error);
 		  });
+
+		event.preventDefault();
 	};
 
 	faceLogin = () => {
-		console.log("face")
 		auth
 		  .signInWithPopup(faceProvider)
 		  .then(data => {
@@ -65,7 +67,7 @@ class Register extends Component {
 			sessionStorage.setItem('firebase_id', data.user.uid);
 			this.getRefreshToken();
 			// We go to the home page
-			this.props.history.push("");
+			this.props.history.push("AccountSettings");
 		  })
 		  .catch(error => {
 			  console.log("Facebook Login error: " + error);
@@ -94,13 +96,11 @@ class Register extends Component {
 					  this.setState(byPropKey("password", e.target.value))
 					}></Input>
 				</FormGroup>
-				<Link to ="/Info">
-					<Button className={styles.Button} onSubmit={this.onSubmit}>Register</Button>
-				</Link>
+				<Button className={styles.Button} onClick={this.onSubmit}>Register</Button>
 				<div className={styles.line}><span>Or Sign In with</span></div>
 				<div className={styles.FacebookGoogle}>
-					<Button ><img src={Google} className={styles.Google} onClick={this.googleLogin}/>Sign In with Google</Button>
-					<Button ><img src={Facebook} className={styles.Facebook} onClick={this.faceLogin}/>Sign In with Facebook</Button>
+					<Button onClick={this.googleLogin}><img src={Google} className={styles.Google}/>Sign In with Google</Button>
+					<Button onClick={this.faceLogin}><img src={Facebook} className={styles.Facebook}/>Sign In with Facebook</Button>
 				</div>
 			</Form>
 		);

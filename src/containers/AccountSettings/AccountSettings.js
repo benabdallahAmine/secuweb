@@ -1,10 +1,8 @@
 import React, { Component }  from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import styles from './Info.css';
+import styles from './AccountSettings.css';
 import { Button } from 'reactstrap';
-var request = require('ajax-request');
-
 
 const INITIAL_STATE = {
     firstName: "",
@@ -51,7 +49,8 @@ class Info extends Component {
             'street': addressOne + "\n"+ addressTwo,
             'zip': zip,
             'city': city,
-            'country': country
+            'country': country,
+            'firebase_id': firebaseId
         }
 
         const options = {
@@ -73,7 +72,7 @@ class Info extends Component {
                 const data = JSON.parse(response);
                 console.log(data);
 
-                if (data[1] != 200) {
+                if (data[1] !== 200) {
                     console.log("Message: " + data[0].message)
                     console.log("Error");
                     return;
@@ -111,6 +110,10 @@ class Info extends Component {
                     })
                     .then(response => {
                         console.log("File uploaded: " + response);
+                        
+                        // Send a message to the user
+			            this.sendEmailVerification();
+
                     })
                     .catch(error => {
                         console.log("File Upload Error: " + error);
@@ -125,7 +128,7 @@ class Info extends Component {
     };
     render () {
         const { firstName, lastName, 
-            number, addressOne, addressTwo, city, zip, country, file } = this.state;
+            number, addressOne, addressTwo, city, zip, country } = this.state;
 
         return (
             <React.Fragment>
