@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import styles from './ChooseNumber.css';
 import { Form, FormGroup, Button } from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 class Auth extends Component { 
 	render () {
@@ -24,7 +25,9 @@ class Auth extends Component {
                         <option value="audi">+33 1 44 34 56 67</option>
                     </select>
 				</FormGroup>
-                <Button className={styles.Button}>Send</Button>
+                <Link to="/Page1">
+					<Button className={styles.Button}>Go</Button>
+				</Link>
 			</Form>
 		);
 	}

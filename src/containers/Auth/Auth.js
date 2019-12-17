@@ -80,9 +80,10 @@ class Auth extends Component {
 			console.log("Successfull User creation");
 			console.log("Firebase User ID :", data.user.uid);
 			sessionStorage.setItem('firebase_id', data.user.uid);
+			sessionStorage.setItem('email', data.user.email);
 			this.getRefreshToken();
 			// We go to the home page
-			this.props.history.push("Page1");
+			this.props.history.push("ChooseNumber");
 		  })
 		  .catch(error => {
 			  console.log("Standard Login error " + error)
@@ -98,15 +99,26 @@ class Auth extends Component {
 			console.log("Google Login auth: " + data);
 			console.log("Firebase User ID :", data.user.uid);
 			sessionStorage.setItem('firebase_id', data.user.uid);
-			this.getRefreshToken();
-			// We go to the home page
-			this.props.history.push("Page1");
+			sessionStorage.setItem('email', data.user.email);
+
+			// Check if the user is registered
+			console.log("Is new user" + data.additionalUserInfo.isNewUser);
+
+			if (data.additionalUserInfo.isNewUser) {
+				// We go to the register page
+				this.props.history.push("AccountSettings");
+			} else {
+				this.getRefreshToken();
+				// We go to the home page
+				this.props.history.push("ChooseNumber");
+			}
 		  })
 		  .catch(error => {
 			  console.log("Google Login error: " + error);
 		  });
 	};
 
+	// TODO: Check if the user is registered
 	faceLogin = () => {
 		auth
 		  .signInWithPopup(faceProvider)
@@ -114,9 +126,10 @@ class Auth extends Component {
 			console.log("Facebook Login auth: " + data);
 			console.log("Firebase User ID :", data.user.uid);
 			sessionStorage.setItem('firebase_id', data.user.uid);
+			sessionStorage.setItem('email', data.user.email);
 			this.getRefreshToken();
 			// We go to the home page
-			this.props.history.push("Page1");
+			this.props.history.push("ChooseNumber");
 		  })
 		  .catch(error => {
 			  console.log("Facebook Login error: " + error);

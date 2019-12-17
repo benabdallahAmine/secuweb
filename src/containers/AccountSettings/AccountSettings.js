@@ -112,8 +112,10 @@ class Info extends Component {
                         console.log("File uploaded: " + response);
                         
                         // Send a message to the user
-			            this.sendEmailVerification();
-
+                        this.sendEmailVerification();
+                        
+                        // We return to the login page
+                        this.props.history.push("");
                     })
                     .catch(error => {
                         console.log("File Upload Error: " + error);
