@@ -5,7 +5,7 @@ import { faPhoneAlt, faBackspace } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Keyboard.css';
 
-const Keyboard = ({ action, remove }) => {
+const Keyboard = ({ action, remove, call }) => {
     return(
         <div>
             <div>
@@ -30,7 +30,7 @@ const Keyboard = ({ action, remove }) => {
             </div>                    
             <div>
                 <Link to="/Calling">
-                    <button className={styles.Button} style={{verticalAlign: 'middle'}}><span><FontAwesomeIcon icon={faPhoneAlt} /></span></button>
+                    <button className={styles.Button} style={{verticalAlign: 'middle'}} onClick={() => call()}><span><FontAwesomeIcon icon={faPhoneAlt} /></span></button>
                 </Link>
             </div>
         </div>

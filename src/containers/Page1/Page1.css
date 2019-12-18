@@ -62,4 +62,13 @@
 .btn:focus {
     outline: 2px dotted #55d7dc;
 }
-  
+
+@media (max-width: 699px) {
+    .buttons {
+        margin-top: 50px;
+    }
+    .btn {
+        margin: 10px;
+        height: 180px;
+    }
+}

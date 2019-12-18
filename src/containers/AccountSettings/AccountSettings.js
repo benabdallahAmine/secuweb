@@ -1,10 +1,9 @@
 import React, { Component }  from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import styles from './Info.css';
+import styles from './AccountSettings.css';
 import { Button } from 'reactstrap';
-var request = require('ajax-request');
-
+import { auth } from '../../helpers/firebase';
 
 const INITIAL_STATE = {
     firstName: "",
@@ -32,7 +31,12 @@ class Info extends Component {
     state = {
         ...INITIAL_STATE
     };
-
+    sendEmailVerification = () => {
+		console.log("Sending verification");
+		auth.currentUser.sendEmailVerification({
+			url: "http://localhost:3000"
+		});
+	}
     onSubmit = event => {
         const { firstName, lastName, 
             number, addressOne, addressTwo, city, zip, country, file } = this.state;
@@ -51,7 +55,8 @@ class Info extends Component {
             'street': addressOne + "\n"+ addressTwo,
             'zip': zip,
             'city': city,
-            'country': country
+            'country': country,
+            'firebase_id': firebaseId
         }
 
         const options = {
@@ -64,7 +69,7 @@ class Info extends Component {
         }
         
         // Add User
-        fetch('http://127.0.0.1:5000/add_user?' + encodeGetParams(values), options)
+        fetch(`http://e44672a8.ngrok.io/add_user?` + encodeGetParams(values), options)
             .then(response => {
                 return response.text()
             })
@@ -73,7 +78,7 @@ class Info extends Component {
                 const data = JSON.parse(response);
                 console.log(data);
 
-                if (data[1] != 200) {
+                if (data[1] !== 200) {
                     console.log("Message: " + data[0].message)
                     console.log("Error");
                     return;
@@ -105,12 +110,18 @@ class Info extends Component {
                     "email": email
                 }
 
-                fetch('http://127.0.0.1:5000/upload_user_identification?'+ encodeGetParams(identification_params), fileUploadOption)
+                fetch(`http://e44672a8.ngrok.io/upload_user_identification?`+ encodeGetParams(identification_params), fileUploadOption)
                     .then(response => {
                         return response.text()
                     })
                     .then(response => {
                         console.log("File uploaded: " + response);
+                        
+                        // Send a message to the user
+                        this.sendEmailVerification();
+                        
+                        // We return to the login page
+                        this.props.history.push("");
                     })
                     .catch(error => {
                         console.log("File Upload Error: " + error);
@@ -125,7 +136,7 @@ class Info extends Component {
     };
     render () {
         const { firstName, lastName, 
-            number, addressOne, addressTwo, city, zip, country, file } = this.state;
+            number, addressOne, addressTwo, city, zip, country } = this.state;
 
         return (
             <React.Fragment>
