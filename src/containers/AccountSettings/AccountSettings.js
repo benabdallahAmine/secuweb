@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import styles from './AccountSettings.css';
 import { Button } from 'reactstrap';
+import { auth } from '../../helpers/firebase';
 
 const INITIAL_STATE = {
     firstName: "",
@@ -30,7 +31,12 @@ class Info extends Component {
     state = {
         ...INITIAL_STATE
     };
-
+    sendEmailVerification = () => {
+		console.log("Sending verification");
+		auth.currentUser.sendEmailVerification({
+			url: "http://localhost:3000"
+		});
+	}
     onSubmit = event => {
         const { firstName, lastName, 
             number, addressOne, addressTwo, city, zip, country, file } = this.state;
@@ -63,7 +69,7 @@ class Info extends Component {
         }
         
         // Add User
-        fetch(`${process.env.REACT_APP_BASE_URL}add_user?` + encodeGetParams(values), options)
+        fetch(`http://e44672a8.ngrok.io/add_user?` + encodeGetParams(values), options)
             .then(response => {
                 return response.text()
             })
@@ -104,7 +110,7 @@ class Info extends Component {
                     "email": email
                 }
 
-                fetch(`${process.env.REACT_APP_BASE_URL}upload_user_identification?`+ encodeGetParams(identification_params), fileUploadOption)
+                fetch(`http://e44672a8.ngrok.io/upload_user_identification?`+ encodeGetParams(identification_params), fileUploadOption)
                     .then(response => {
                         return response.text()
                     })

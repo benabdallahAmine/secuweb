@@ -57,8 +57,6 @@ class Call extends Component {
     render(){
         return (
             <div className={styles.Center}>
-                <h1>{process.env.REACT_APP_BASE_URL}</h1>
-                <h2>kk{process.env.REACT_APP_TWO}</h2>
                 <ChooseNumber phone_type={'voice'}/>
                 <div className={styles.Rectangle}>{this.state.numberClicked}</div>
                 <Keyboard

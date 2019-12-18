@@ -21,13 +21,6 @@ const byPropKey = (propertyName, value) => () => ({
 class Auth extends Component {
 	state = { ...INITIAL_STATE };
 
-	sendEmailVerification = () => {
-		console.log("Sending verification");
-		auth.currentUser.sendEmailVerification({
-			url: "http://localhost:3000"
-		});
-	}
-
 	getRefreshToken = () => {
 		// Request a token from the server
 		const values = {
@@ -40,28 +33,20 @@ class Auth extends Component {
 			  'Accept': 'application/json',
 			  'Access-Control-Allow-Origin' : "*"
 			},
-			method: 'GET'
+			method: 'POST'
 		}
 		
 		// Add User
-		fetch(`${process.env.REACT_APP_BASE_URL}login?` + encodeGetParams(values), options)
+		fetch(`http://e44672a8.ngrok.io/login?` + encodeGetParams(values), options)
 			.then(response => {
 				return response.text()
 			})
 			.then(response => {
 				console.log("Got response" + response);
 				const data = JSON.parse(response);
-				console.log(data);
-
-				if (data[1] !== 200) {
-					console.log("Message: " + data[0].message)
-					console.log("Error");
-					return;
-				}
-
 				// Store the JWT tokens
-				sessionStorage.setItem("access_token", data[0].access_token);
-				sessionStorage.setItem("refresh_token", data[0].refresh_token);
+				sessionStorage.setItem("access_token", data.access_token);
+				sessionStorage.setItem("refresh_token", data.refresh_token);
 
 				this.setState({
 					...INITIAL_STATE

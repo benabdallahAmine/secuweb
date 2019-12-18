@@ -20,7 +20,7 @@ class ChooseNumber extends Component {
       },
       method: 'GET',
     };
-    fetch(`${process.env.REACT_APP_BASE_URL}user/phone?phone_type=${this.props.phone_type}`, options)
+    fetch(`http://e44672a8.ngrok.io/user/phone?phone_type=${this.props.phone_type}`, options)
       .then(response => response.json())
       .then(response => {
         this.setState({phones: response.phones});
