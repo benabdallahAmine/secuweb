@@ -10,7 +10,7 @@ class Calling extends Component {
         return (
             <div className={styles.Center}>
                 <div className={styles.Rectangle}> 
-                    <span><FontAwesomeIcon icon={faPhoneVolume} size="5x"/>Calling ...</span>
+                    <div className={styles.font}><FontAwesomeIcon icon={faPhoneVolume} size="5x"/>Calling ...</div>
                 </div>
             </div>
         )};

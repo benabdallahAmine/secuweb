@@ -46,7 +46,7 @@ class Call extends Component {
         };
         console.log("url: " + process.env.BASE_URL);
         console.log("token: " + sessionStorage.getItem("access_token"));
-        axios.post('http://e44672a8.ngrok.io/outbound-call', form, options)
+        axios.post(`${process.env.REACT_APP_BASE_URL}outbound-call`, form, options)
           .then(response => {
               console.log("call started");
           }).catch(error => {
