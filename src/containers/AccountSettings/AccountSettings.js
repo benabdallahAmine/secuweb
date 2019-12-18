@@ -69,7 +69,7 @@ class Info extends Component {
         }
         
         // Add User
-        fetch(`http://e44672a8.ngrok.io/add_user?` + encodeGetParams(values), options)
+        fetch(`${process.env.REACT_APP_BASE_URL}add_user?` + encodeGetParams(values), options)
             .then(response => {
                 return response.text()
             })
@@ -110,7 +110,7 @@ class Info extends Component {
                     "email": email
                 }
 
-                fetch(`http://e44672a8.ngrok.io/upload_user_identification?`+ encodeGetParams(identification_params), fileUploadOption)
+                fetch(`${process.env.REACT_APP_BASE_URL}upload_user_identification?`+ encodeGetParams(identification_params), fileUploadOption)
                     .then(response => {
                         return response.text()
                     })

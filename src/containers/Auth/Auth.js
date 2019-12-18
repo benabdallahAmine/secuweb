@@ -37,7 +37,7 @@ class Auth extends Component {
 		}
 		
 		// Add User
-		fetch(`http://e44672a8.ngrok.io/login?` + encodeGetParams(values), options)
+		fetch(`${process.env.REACT_APP_BASE_URL}login?` + encodeGetParams(values), options)
 			.then(response => {
 				return response.text()
 			})

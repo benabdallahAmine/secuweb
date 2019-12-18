@@ -18,3 +18,21 @@
     text-align: center;
     align-items: center;
 }
+
+.font {
+    margin-top: 110px;
+}
+
+@media (max-width: 812px) {
+    .Rectangle {
+        width: 600px;
+        height: 600px;
+    }
+}
+
+@media (max-width: 615px) {
+    .Rectangle {
+        width: 480px;
+        height: 480px;
+    }
+}

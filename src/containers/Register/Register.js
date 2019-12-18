@@ -82,7 +82,7 @@ class Register extends Component {
 				<h1><span className={styles.logoName}>Register</span></h1>
 				<FormGroup>
 					<Input type="email" 
-					placeholder="Email"
+					placeholder="Choose an Email"
 					value={email}
 					onChange={e =>
 					  this.setState(byPropKey("email", e.target.value))
@@ -90,7 +90,7 @@ class Register extends Component {
 				</FormGroup>
 				<FormGroup>
 					<Input type="password" 
-					placeholder="Password"
+					placeholder="Choose a Password"
 					value={password}
 					onChange={e =>
 					  this.setState(byPropKey("password", e.target.value))
