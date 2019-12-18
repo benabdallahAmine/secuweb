@@ -63,7 +63,7 @@ class Info extends Component {
         }
         
         // Add User
-        fetch('http://127.0.0.1:5000/add_user?' + encodeGetParams(values), options)
+        fetch(`${process.env.REACT_APP_BASE_URL}add_user?` + encodeGetParams(values), options)
             .then(response => {
                 return response.text()
             })
@@ -104,7 +104,7 @@ class Info extends Component {
                     "email": email
                 }
 
-                fetch('http://127.0.0.1:5000/upload_user_identification?'+ encodeGetParams(identification_params), fileUploadOption)
+                fetch(`${process.env.REACT_APP_BASE_URL}upload_user_identification?`+ encodeGetParams(identification_params), fileUploadOption)
                     .then(response => {
                         return response.text()
                     })

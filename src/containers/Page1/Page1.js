@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 import styles from './Page1.css';
 
 class Page1 extends Component {
 
     render() {
     return (
-        <div>
             <div className={styles.buttons}>
                 <div>
                     <Link to="/Call">
@@ -20,7 +18,6 @@ class Page1 extends Component {
                     <button className={[styles.btn, styles.drawBorder].join(' ')}>VideoConference</button>
                 </div>
             </div>
-        </div>
     )};
 }
 

@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
 .Center {
     text-align: center;
-    margin-top: 140px;
+    margin-top: 90px;
 
 }
-
 .Rectangle {
     display: inline-block;
     width: 477px;
@@ -18,5 +19,3 @@
     text-align: center;
     overflow: auto;
 }
-
-     

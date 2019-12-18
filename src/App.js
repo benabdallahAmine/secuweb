@@ -8,7 +8,6 @@ import Calling from './containers/Calling_Page/Calling';
 import Auth from './containers/Auth/Auth';
 import Register from './containers/Register/Register';
 import AccountSettings from './containers/AccountSettings/AccountSettings';
-import ChooseNumber from './containers/ChooseNumber/ChooseNumber';
 
 class App extends Component {
   render() {
@@ -16,7 +15,6 @@ class App extends Component {
       <div id='root'>
         <Navbar />
         <Switch>
-          <Route path="/ChooseNumber" component={ChooseNumber} />
           <Route path="/Calling" component={Calling} />
           <Route path="/Call" component={Call} />
           <Route path="/AccountSettings" component={AccountSettings} />

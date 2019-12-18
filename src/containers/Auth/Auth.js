@@ -44,7 +44,7 @@ class Auth extends Component {
 		}
 		
 		// Add User
-		fetch('http://127.0.0.1:5000/login?' + encodeGetParams(values), options)
+		fetch(`${process.env.REACT_APP_BASE_URL}login?` + encodeGetParams(values), options)
 			.then(response => {
 				return response.text()
 			})
@@ -83,7 +83,7 @@ class Auth extends Component {
 			sessionStorage.setItem('email', data.user.email);
 			this.getRefreshToken();
 			// We go to the home page
-			this.props.history.push("ChooseNumber");
+			this.props.history.push("Page1");
 		  })
 		  .catch(error => {
 			  console.log("Standard Login error " + error)
@@ -110,7 +110,7 @@ class Auth extends Component {
 			} else {
 				this.getRefreshToken();
 				// We go to the home page
-				this.props.history.push("ChooseNumber");
+				this.props.history.push("Page1");
 			}
 		  })
 		  .catch(error => {
