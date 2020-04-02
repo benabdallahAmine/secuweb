@@ -78,8 +78,8 @@ public class AccountRestApi {
         }catch (Exception e){
             throw new RuntimeException("The phone number should be numbers");
         }
-        int length = String.valueOf(registerForm.getNumberPhone()).length();
-        if(length != 9){
+        boolean isNumberPhone = registerForm.getNumberPhone().matches("(?:(?:\\+|00)33|0)\\s*[1-9](?:[\\s.-]*\\d{2}){4}");
+        if(!isNumberPhone){
             throw new RuntimeException("The phone number should have 10 digits ");
         }
         Users newUser = new Users();
