@@ -97,10 +97,7 @@ public class AccountRestApi {
     public ResponseEntity uploadIdentityCardFile(@RequestParam MultipartFile file) {
         IdentityCardFile identityCardFile = new IdentityCardFile();
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-        List<String> contentTypes = Arrays.asList("image/png", "image/jpeg");
-        if(!contentTypes.contains(file.getContentType())){
-            return ResponseEntity.badRequest().build();
-        }else {
+        List<String> contentTypes = Arrays.asList("image/png", "image/jpeg","application/pdf");
         identityCardFile.setFileName(fileName);
         try {
             String UPLOADED_FOLDER = "/Users/air/Desktop/";
@@ -113,8 +110,6 @@ public class AccountRestApi {
         }
         return ResponseEntity.ok(fileName + " was successfully uploaded");
         }
-    }
-
-
+        
 
 }
