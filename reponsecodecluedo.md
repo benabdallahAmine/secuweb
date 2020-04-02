@@ -2,11 +2,11 @@ Le module Python json et la fonction url_for sont importés dans le code, sans j
 
 L’emploi de l’algorithme de chiffrement symétrique DES (Data Encryption Standard) n’est plus recommandé aujourd’hui. Il présente plusieurs vulnérabilités, par exemple l’attaque par Brute Force finit par être la plus pratique et la plus efficace. Néanmoins, il existe trois attaques théoriques possibles qui ont une complexité moindre que celle de l’attaque par Brute Force, elles consistent à trouver un nombre infini de textes qui pourraient être la solution. 
 
-	1. Cryptanalyse différentielle : C’est une attaque à messages clairs choisis, sur les 			constructions itératives de chiffrement par bloc. 
+1. Cryptanalyse différentielle : C’est une attaque à messages clairs choisis, sur les constructions itératives de chiffrement par bloc. 
 
-	2. Cryptanalyse linéaire : C’est une attaque à clairs connus sur les chiffrements par bloc 		itératifs. Le principe général consiste à approcher le chiffrement par des équations 		linéaires. 
+2. Cryptanalyse linéaire : C’est une attaque à clairs connus sur les chiffrements par bloc itératifs. Le principe général consiste à approcher le chiffrement par des équations linéaires. 
 
-	3. Il s'agit d'une attaque en texte clair connue basée sur la distribution non uniforme des 	sorties de paires de S-box adjacentes. 
+3. Il s'agit d'une attaque en texte clair connue basée sur la distribution non uniforme des sorties de paires de S-box adjacentes. 
 
 Md5 est une fonction de hachage cryptographique qui permet d’obtenir l’empreinte numérique d’un message, elle est aujourd’hui considérée comme dépassé et absolument impropre à toute utilisation en cryptographie ou en sécurité. En effet, depuis 1996, une faille qualifiée de "grave" est découverte, possibilité de créer des collisions à la demande. Une attaque par collision consiste à trouver deux messages M1 et M2 différents, tels que H(M1) = H(M2). 
 
