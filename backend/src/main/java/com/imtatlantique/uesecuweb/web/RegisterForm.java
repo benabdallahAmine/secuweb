@@ -6,11 +6,11 @@ public class RegisterForm {
     private String firstName;
     private String lastName;
     private String email;
-    private int numberPhone;
+    private String numberPhone;
     private String password;
     private String repassword;
 
-    public int getNumberPhone() {
+    public String getNumberPhone() {
         return numberPhone;
     }
 

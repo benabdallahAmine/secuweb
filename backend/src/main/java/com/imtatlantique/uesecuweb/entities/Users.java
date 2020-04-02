@@ -15,7 +15,7 @@ public class Users {
     private String email;
     private String firstName;
     private String lastName;
-    private int numberPhone;
+    private String numberPhone;
     private String password;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles = new ArrayList<>();
@@ -77,11 +77,11 @@ public class Users {
         this.lastName = lastName;
     }
 
-    public int getNumberPhone() {
+    public String getNumberPhone() {
         return numberPhone;
     }
 
-    public void setNumberPhone(int numberPhone) {
+    public void setNumberPhone(String numberPhone) {
         this.numberPhone = numberPhone;
     }
 
