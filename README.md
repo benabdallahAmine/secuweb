@@ -28,6 +28,13 @@ Pour lancer  l'application chez vous :
 - Vous aurez besoin d'installer node.js 
 
 - Cloner le projet chez vous.
-- 
+- Pour lancer le backend, rendez vous sur le dossier backend, compilez l'application 
+secuweb/backend/src/main/resources/application.properties
+-Ensuite lancer la partie frontend, rendez vous le dossier frontend:
+  npm install
+  npm start
+  
+  Si vous avez des problèmes, n'hésitez pas à nous contacter. 
+  amine.benabdallah@imt-altantique.net
 
 
