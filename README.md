@@ -41,7 +41,7 @@ Pour lancer  l'application chez vous :
   Si vous avez déjà travailler avec eclipse ou intelliJ vous pouvez bien lancez le backend à partir de l'un de ces IDE. 
     
 
--Ensuite lancer la partie frontend, rendez vous le dossier frontend:
+- Ensuite lancer la partie frontend, rendez vous le dossier frontend:
   npm install
   npm start
   
