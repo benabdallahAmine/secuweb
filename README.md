@@ -34,7 +34,9 @@ secuweb/backend/src/main/resources/application.properties
   npm install
   npm start
   
-  Si vous avez des problèmes, n'hésitez pas à nous contacter. 
-  amine.benabdallah@imt-altantique.net
+Si vous rencontrez des problèmes, n'hésitez pas à nous contacter : 
+- amine.benabdallah@imt-altantique.net
+- hamid.massaoud@imt-atlantique.net
+
 
 
