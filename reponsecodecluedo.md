@@ -1,4 +1,4 @@
-Le module Python json et la fonction url_for sont importés dans le code, sans jamais être utilisés. url_for rend le code plus facile à maintenir. En effet, si on décide de changer l’URL d’une vue, il suffit de changer le paramètre de app.route, et toutes les autres vues contenant des liens vers elle s’adapteront automatiquement.
+Le module Python json et la fonction url_for sont importés dans le code, sans jamais être utilisés.
 
 L’emploi de l’algorithme de chiffrement symétrique DES (Data Encryption Standard) n’est plus recommandé aujourd’hui. Il présente plusieurs vulnérabilités, par exemple l’attaque par Brute Force finit par être la plus pratique et la plus efficace. Néanmoins, il existe trois attaques théoriques possibles qui ont une complexité moindre que celle de l’attaque par Brute Force, elles consistent à trouver un nombre infini de textes qui pourraient être la solution. 
 
