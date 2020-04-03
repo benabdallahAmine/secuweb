@@ -61,7 +61,7 @@ class modal extends Component {
                     <div className={styles.modalBody}>
                         <div>
                             <label style={{float: 'left', paddingLeft: '10%'}}>Votre Pièce d'Idendité :</label>
-                            <label for="file" className={styles.labelFile}>Choisir un fichier</label>
+                            <label for="file" className={styles.labelFile}>Choisir un fichier (Format: JPEG ou PNG)</label>
                             <input id="file" type="file" name="file"  className={styles.inputFile} onChange={this.onChangeIdCard}></input>
                             <div className="file-preview">{this.state.selectedFileName}</div >
                         </div>
