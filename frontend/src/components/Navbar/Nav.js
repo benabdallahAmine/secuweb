@@ -49,7 +49,7 @@ class Nav extends Component {
       return(
         <div>
           <div style={styles.container}>
-            <div style={styles.logo}>Find Your House</div>
+            <div style={styles.logo}>Trouve Ton Logement</div>
             <a href="/" className={css.signOut} style={{textDecoration: 'none'}} onClick={() => {this.logOut();}}>Déconnexion</a>
           </div>
           <div>
