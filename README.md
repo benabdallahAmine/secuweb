@@ -43,8 +43,8 @@ Pour lancer  l'application chez vous :
     
 
 - Ensuite lancer la partie frontend, rendez vous le dossier frontend:
-  npm install
-  npm start
+    - npm install
+    - npm start
   
 N'oubliez pas de tester les deux branches.
 
