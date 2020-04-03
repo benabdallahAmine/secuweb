@@ -38,7 +38,7 @@ Pour lancer  l'application chez vous :
   - Ensuite dans un terminal, placez vous dans le dossier backend
   - Tapez la commande mvn clean install
   - Un dossier target sera généré avec un jar dedans
-  - Lacez l'application java : java -jar <nomDuJar>.jar
+  - Lacez l'application java : java -jar nomDuJarGénéré.jar
   - Si vous avez déjà travailler avec eclipse ou intelliJ vous pouvez bien lancez le backend à partir de l'un de ces IDE. 
     
 
