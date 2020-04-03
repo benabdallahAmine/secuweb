@@ -35,11 +35,11 @@ Pour lancer  l'application chez vous :
   application.properties qui se trouve dans le dossier secuweb/backend/src/main/resources/ Vous devez configurer 3 lignes( Url de la         base de donnée, login de l'utilisateur root, mot de passe de l'utilisateur root)    
   Si vous voulez travailler avec seulement la base de données InMemory et ne pas installer mysql. Dans le fichier pom.xml décommentez       la dépendance com.h2database et commentez la dépendance mysql
   
-  Ensuite dans un terminal, placez vous dans le dossier backend. 
-  Tapez la commande mvn clean install(Vous devez avoir installer maven)
-  Un dossier target sera généré aven un jar dedans
-  Lacez l'application java : java -jar <nomDuJar>.jar
-  Si vous avez déjà travailler avec eclipse ou intelliJ vous pouvez bien lancez le backend à partir de l'un de ces IDE. 
+  - Ensuite dans un terminal, placez vous dans le dossier backend
+  - Tapez la commande mvn clean install
+  - Un dossier target sera généré avec un jar dedans
+  - Lacez l'application java : java -jar <nomDuJar>.jar
+  - Si vous avez déjà travailler avec eclipse ou intelliJ vous pouvez bien lancez le backend à partir de l'un de ces IDE. 
     
 
 - Ensuite lancer la partie frontend, rendez vous le dossier frontend:
