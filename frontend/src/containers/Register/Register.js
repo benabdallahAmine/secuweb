@@ -115,7 +115,7 @@ class Register extends Component {
 			if(this.state.message.startsWith("JSON")){
 				return(<div>
 					<h1>Bad registration form</h1>
-					<h1><span className={styles.logoName}>Bad Request, please contact the administrator</span></h1>
+					<h1><span className={styles.logoName}>Bad Request, Veuillez contactez l'administrateur du site</span></h1>
 					<a href="/Register">Go back to registration</a>
 				</div>)
 			}
@@ -159,7 +159,7 @@ class Register extends Component {
 							</Col>
 						</Row>
 						<Input required
-						type="number" 
+						type="text" 
 						placeholder="Numéro de téléphone"
 						value={this.state.numberPhone}
 						onChange={this.onChangeNumberPhone}
@@ -188,7 +188,7 @@ class Register extends Component {
 					<div className="text-center pt-3">Or</div>
 					<div>
 						<Link to="/">
-							<a>Sign In</a>
+							<a>Se connecter</a>
 						</Link>
 					</div>
 				</Form>

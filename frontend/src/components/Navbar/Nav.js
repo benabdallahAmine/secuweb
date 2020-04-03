@@ -67,10 +67,10 @@ class Navbar extends Component {
         <div>
           <div style={styles.container}>
             
-            <div style={styles.logo}>Find Your House</div>
+            <div style={styles.logo}>Trouve Ton Logement</div>
             
             <a href="/" style={styles.None} onClick={() => {this.logOut();}}>
-                    LogOut
+                    Déconnexion
             </a>
           </div>
           <Menu open={this.state.menuOpen}>

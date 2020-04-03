@@ -88,12 +88,12 @@ class Auth extends Component {
                     	onChange={this.onChangePassword}
 						></Input>
 					</FormGroup>
-					<Button className={styles.Button}>Sign in</Button>
+					<Button className={styles.Button}>Connexion</Button>
 					
 					<div className="text-center pt-3"></div>
 					<div>
 						<Link to="/Register">
-							<a>Creat New Account</a>
+							<a>Créer un nouveau compte</a>
 						</Link>
 					</div>
 					</Form>

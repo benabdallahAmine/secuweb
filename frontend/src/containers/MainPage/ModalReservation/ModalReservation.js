@@ -105,7 +105,7 @@ class modal extends Component {
                     </div>
                     <div className={styles.modalBody}>
                         <div>
-                            <label style={{float: 'left'}}>Votre Pièce d'Idendité (format PDF) :</label>
+                            <label style={{float: 'left'}}>Votre Pièce d'Idendité (format: png, jpeg) :</label>
                             <label for="file" className={styles.labelFile}></label>
                             <input type="file" name ="file" onChange={this.onChangeIdCard}></input>
                             

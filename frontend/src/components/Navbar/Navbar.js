@@ -58,7 +58,7 @@ class Navbar extends Component {
       return(
         <div>
           <div style={styles.container}>
-            <div style={styles.logo}>Find Your House</div>
+            <div style={styles.logo}>Trouve Ton Logement</div>
           </div>
           
           <div>
