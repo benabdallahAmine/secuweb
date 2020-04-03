@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 
 import css from './Navbar.css';
 import Footer from './Footer';
-import Menu from './Menu';
-import MenuButton from './MenuButton';
-import MenuItem from './MenuItem';
 import AuthService from "../../services/auth.service";
 
-class Navbar extends Component {
+class Nav extends Component {
     constructor(props){
       super(props);
       this.state={
@@ -30,12 +27,6 @@ class Navbar extends Component {
     render(){
       const styles= 
         {
-          None:{
-            border:'none',
-            background: '#131f28',
-            color:'#c9d700'
-            
-          },
           container:{
             position: 'absolute',
             top: 0,
@@ -54,28 +45,13 @@ class Navbar extends Component {
             margin: '0 auto',
           },
         }
-      const menu = ['Services','Why Find Your House','À propos','Contact'];
-      const menuItems = menu.map((val,index)=>{
-        return (
-          <MenuItem 
-            key={index} 
-            delay={`${index * 0.1}s`}
-            onClick={()=>{this.handleLinkClick();}}>{val}</MenuItem>);
-      });
-      /*<MenuButton open={this.state.menuOpen} onClick={()=>this.handleMenuClick()} color='#c9d700'/>*/
+        
       return(
         <div>
           <div style={styles.container}>
-            
             <div style={styles.logo}>Find Your House</div>
-            
-            <a href="/" style={styles.None} onClick={() => {this.logOut();}}>
-                    LogOut
-            </a>
+            <a href="/" className={css.signOut} style={{textDecoration: 'none'}} onClick={() => {this.logOut();}}>Déconnexion</a>
           </div>
-          <Menu open={this.state.menuOpen}>
-            {menuItems}
-          </Menu>
           <div>
             <Footer />
           </div>
@@ -84,6 +60,6 @@ class Navbar extends Component {
     }
   }
 
-export default Navbar;
+export default Nav;
   
   

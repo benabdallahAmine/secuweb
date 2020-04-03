@@ -11,8 +11,9 @@ class Page1 extends Component {
 
     render() {
     return (
+        <div>          
+            <Nav />
             <div className="container-fluid d-flex justify-content-center">
-                <Nav />
                 <Row>
                     <Col>
                         <Card imgsrc={img1} title="Appartement" paragraph="Loft en Duplex et patio intimiste. Idéalement situé à deux pas du centre-ville d'Anglet, 
@@ -34,7 +35,9 @@ class Page1 extends Component {
                         Surface : 19.34 m². Prix est de 250 302€ HT." />
                     </Col>
                 </Row>
-            </div>
+            </div>    
+        </div>
+
     )};
 }
 

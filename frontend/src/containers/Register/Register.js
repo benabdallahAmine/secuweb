@@ -89,35 +89,30 @@ class Register extends Component {
 
 			},
 			error => {
-				
 			  const resMessage =
 				(error.response &&
 				  error.response.data &&
 				  error.response.data.message) ||
 				error.message ||
 				error.toString();
-	
+			  console.log(resMessage)
 			  this.setState({
 				successful: false,
 				message: resMessage,
-				hasError: true
+				hasError: true,
 			  });
 			}
 		  );
-		
 	  }
 
-
-
-
-	render () {
+	render () {	
 		if (this.state.hasError){
 			if(this.state.message.startsWith("JSON")){
 				return(<div>
 					<h1>Bad registration form</h1>
 					<h1><span className={styles.logoName}>Bad Request, please contact the administrator</span></h1>
 					<a href="/Register">Go back to registration</a>
-				</div>)
+					</div>)
 			}
 			return(
 			<div>
@@ -125,10 +120,8 @@ class Register extends Component {
 				<h1><span className={styles.logoName}>{this.state.message}</span></h1>
 				<a href="/Register">Go back to registration</a>
 			</div>
-			
 			)
-		}
-		
+		}	
 		return (
 			<div>
 				<Navbar />
@@ -159,7 +152,7 @@ class Register extends Component {
 							</Col>
 						</Row>
 						<Input required
-						type="number" 
+						type="text" 
 						placeholder="Numéro de téléphone"
 						value={this.state.numberPhone}
 						onChange={this.onChangeNumberPhone}
@@ -185,10 +178,10 @@ class Register extends Component {
 						></Input>
 					</FormGroup>
 					<Button className={styles.Button}>Créer un Compte</Button>
-					<div className="text-center pt-3">Or</div>
+					<div className={styles.line}><span>Vous avez déjà un compte ?</span></div>
 					<div>
 						<Link to="/">
-							<a>Sign In</a>
+							<a>Se Connecter</a>
 						</Link>
 					</div>
 				</Form>

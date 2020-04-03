@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 
 import './Navbar.css';
 import Footer from './Footer';
-import Menu from './Menu';
-import MenuButton from './MenuButton';
-import MenuItem from './MenuItem';
 
 class Navbar extends Component {
     constructor(props){
@@ -43,24 +40,12 @@ class Navbar extends Component {
             margin: '0 auto',
           },
         }
-    /*const menu = ['Services','Why Find Your House','À propos','Contact'];
-      const menuItems = menu.map((val,index)=>{
-        return (
-          <MenuItem 
-            key={index} 
-            delay={`${index * 0.1}s`}
-            onClick={()=>{this.handleLinkClick();}}>{val}</MenuItem>);
-            /*<Menu open={this.state.menuOpen}>
-            {menuItems}
-          </Menu>
-      });<MenuButton open={this.state.menuOpen} onClick={()=>this.handleMenuClick()} color='#c9d700'/>
-      */
+
       return(
         <div>
           <div style={styles.container}>
             <div style={styles.logo}>Find Your House</div>
           </div>
-          
           <div>
             <Footer />
           </div>

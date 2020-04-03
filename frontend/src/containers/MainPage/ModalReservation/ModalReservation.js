@@ -2,36 +2,25 @@ import React, { Component } from 'react';
 
 import styles from '../ModalReservation/ModalReservation.css';
 import AuthService from "../../../services/auth.service";
-import {
-    useHistory
-  } from "react-router-dom";
 
 class modal extends Component {
     constructor(props) {
         super(props);
         this.onChangeIdCard = this.onChangeIdCard.bind(this);
-        //this.onChangeMonthlyInc = this.onChangeMonthlyInc.bind(this);
-        //this.onChangeTaxInc= this.onChangeTaxInc.bind(this);
         this.state = {
             selectedFile: '',
+            selectedFileName: '',
             hasError: false
           
         };
       }
-    
-    /*onChangeIdCard = (e) => {
-        var filesIdCard = e.target.files;
-        var filesIdCardArr = Array.prototype.slice.call(filesIdCard);
-        this.setState({
-            filesIdCard: [...this.state.filesIdCard, ...filesIdCardArr]
-        });
-    ¨*/
-    
+
     onChangeIdCard = (e) => {
         console.log(AuthService.getToken());
         e.preventDefault();
         this.setState({
-            selectedFile: e.target.files[0]
+            selectedFile: e.target.files[0],
+            selectedFileName: e.target.files[0].name
         });
         const formData = new FormData();
         formData.append('file', e.target.files[0]);
@@ -57,40 +46,6 @@ class modal extends Component {
         });
     };
 
-    /*onChangeMonthlyInc = (e) => {
-        var fileMonthlyInc = e.target.files;
-        var fileMonthlyIncArr = Array.prototype.slice.call(fileMonthlyInc);
-        this.setState({
-            fileMonthlyInc: [...this.state.fileMonthlyInc, ...fileMonthlyIncArr]
-        });
-    }
-
-    onChangeTaxInc = (e) => {
-        var filesTaxInc = e.target.files;
-        var filesTaxIncArr = Array.prototype.slice.call(filesTaxInc);
-        this.setState({
-            filesTaxInc: [...this.state.filesTaxInc, ...filesTaxIncArr]
-        });
-    }*/
-
-    /*handleUpload(e) {
-		e.preventDefault();
-		AuthService.login(this.state.email, this.state.password).then(
-			(data) => {
-			  window.location.reload();
-			  console.log(data);
-			},
-			error => {
-			  console.log(error + "NOOOOOOOOO");
-			  const resMessage =
-				(error.response &&
-				  error.response.data &&
-				  error.response.data.message) ||
-				error.message ||
-				error.toString();
-			}
-		  );
-		}*/
     render() {
     return (
             <div className={styles.modal} 
@@ -105,12 +60,11 @@ class modal extends Component {
                     </div>
                     <div className={styles.modalBody}>
                         <div>
-                            <label style={{float: 'left'}}>Votre Pièce d'Idendité (format PDF) :</label>
-                            <label for="file" className={styles.labelFile}></label>
-                            <input type="file" name ="file" onChange={this.onChangeIdCard}></input>
-                            
+                            <label style={{float: 'left', paddingLeft: '10%'}}>Votre Pièce d'Idendité :</label>
+                            <label for="file" className={styles.labelFile}>Choisir un fichier</label>
+                            <input id="file" type="file" name="file"  className={styles.inputFile} onChange={this.onChangeIdCard}></input>
+                            <div className="file-preview">{this.state.selectedFileName}</div >
                         </div>
-            
                     </div>
                 </div>
             </div>

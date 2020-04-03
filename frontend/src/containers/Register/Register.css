@@ -47,3 +47,31 @@
     background-color: #c9d700;
 }
 
+.loginForm div a {
+    font-size: 15px;
+    font-weight: bolder;
+    color: black;
+}
+
+.line {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: black;
+    position: relative;
+    z-index: 1;
+}
+.line:before {
+        border-top: 1px solid black;
+        content:"";
+        margin: 0 auto; 
+        position: absolute; 
+        top: 50%; left: 0; right: 0; bottom: 0;
+        width: 50%;
+        z-index: -1;
+}
+
+.line span { 
+    background: #C8C8C8; 
+    padding: 0 10px;
+    font-size: 15px; 
+}

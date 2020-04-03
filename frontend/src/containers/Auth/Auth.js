@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from './Auth.css';
 import Navbar from '../../components/Navbar/Navbar'; 
 import AuthService from "../../services/auth.service";
+
 class Auth extends Component {
 	constructor(props) {
 		super(props);
@@ -37,6 +38,7 @@ class Auth extends Component {
 		  message: "",
 		  loading: true
 		});
+
 		AuthService.login(this.state.email, this.state.password).then(
 			(data) => {
 			  
@@ -88,12 +90,11 @@ class Auth extends Component {
                     	onChange={this.onChangePassword}
 						></Input>
 					</FormGroup>
-					<Button className={styles.Button}>Sign in</Button>
-					
-					<div className="text-center pt-3"></div>
+					<Button className={styles.Button}>Se connecter</Button>
+					<div className={styles.line}><span>Vous n’avez pas de compte ?</span></div>
 					<div>
 						<Link to="/Register">
-							<a>Creat New Account</a>
+							<a>Créer un nouveau Compte</a>
 						</Link>
 					</div>
 					</Form>

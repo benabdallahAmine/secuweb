@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap');
 
+
 .signOut {
   padding-right: 4px;
+  background: #131f28;
+  color: #c9d700;
 }
 
-.signOut:hover, .signOut:focus {
+.signOut:hover {
   color: white;
-  cursor: pointer;
 }
 @keyframes appear {
   0% {
