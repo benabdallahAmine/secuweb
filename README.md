@@ -29,7 +29,7 @@ Pour lancer  l'application chez vous :
 
 - Cloner le projet chez vous.
 - Pour lancer le backend:  
-  - Dans la classe AccountRestApi.java dans le dossier backend/src/main/java/com/imtatlantique/uesecuweb/web/. Il y'a une une méthode nommé : uploadIdentityCardFile. Dans cette méthode il faut modifié la valeur de la variable UPLOADED_FOLDER et mettre le lien vers un dossier ou seront stockées les fichiers téléchargés
+  - Dans la classe AccountRestApi.java dans le dossier backend/src/main/java/com/imtatlantique/uesecuweb/web/. Il y'a une une méthode nommé : uploadIdentityCardFile. Dans cette méthode il faut modifié la valeur de la variable UPLOADED_FOLDER et mettre le lien vers un dossier sur votre machine ou seront stockées les fichiers téléchargés
   - Le backend utilise une base de données mysql. Avant de démarrer le backend vous devez installer MySQL. 
   - Si vous ne voulez pas le faire on a intégré dans le projet une base de donnée dites InMemory qui s'appelle H2. 
   - Si vous faite le choix de travaillez avec une base de données mysql. Vous devez éditer le fichier suivant: 
