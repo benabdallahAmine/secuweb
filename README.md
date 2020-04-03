@@ -29,11 +29,11 @@ Pour lancer  l'application chez vous :
 
 - Cloner le projet chez vous.
 - Pour lancer le backend:  
-  Le backend utilise une base de données mysql. Avant de démarrer le backend vous devez installer MySQL. 
-  Si vous ne voulez pas le faire on a intégré dans le projet une base de donnée dites InMemory qui s'appelle H2. 
-  Si vous faite le choix de travaillez avec une base de données mysql. Vous devez éditer le fichier suivant: 
-  application.properties qui se trouve dans le dossier secuweb/backend/src/main/resources/ Vous devez configurer 3 lignes( Url de la         base de donnée, login de l'utilisateur root, mot de passe de l'utilisateur root)    
-  Si vous voulez travailler avec seulement la base de données InMemory et ne pas installer mysql. Dans le fichier pom.xml décommentez       la dépendance com.h2database et commentez la dépendance mysql
+  - Le backend utilise une base de données mysql. Avant de démarrer le backend vous devez installer MySQL. 
+  - Si vous ne voulez pas le faire on a intégré dans le projet une base de donnée dites InMemory qui s'appelle H2. 
+  - Si vous faite le choix de travaillez avec une base de données mysql. Vous devez éditer le fichier suivant: 
+    - application.properties qui se trouve dans le dossier secuweb/backend/src/main/resources/ Vous devez configurer 3 lignes( Url de la         base de donnée, login de l'utilisateur root, mot de passe de l'utilisateur root)    
+    - Si vous voulez travailler avec seulement la base de données InMemory et ne pas installer mysql. Dans le fichier pom.xml décommentez       la dépendance com.h2database et commentez la dépendance mysql
   
   - Ensuite dans un terminal, placez vous dans le dossier backend
   - Tapez la commande mvn clean install
