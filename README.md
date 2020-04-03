@@ -28,12 +28,36 @@ Pour lancer  l'application chez vous :
 - Vous aurez besoin d'installer node.js 
 
 - Cloner le projet chez vous.
-- Pour lancer le backend, rendez vous sur le dossier backend, compilez l'application 
-secuweb/backend/src/main/resources/application.properties
+- Pour lancer le backend:  
+    Le backend utilise une base de données mysql avant de démarrer le backend vous devez installer MySQL. Si vous ne voulez pas le faire j'ai intégré dans le projet une base de donnée dites InMemory qui s'appelle H2. 
+    Si vous faite le choix de travaillez avec une base de données mysql. Vous devez éditer le fichier suivant: 
+    application.properties qui se trouve dans le dossier secuweb/backend/src/main/resources/ Vous devez configurer 3 lignes( Url de la      base de donnée, login de l'utilisateur root, mot de passe de l'utilisateur root)    
+    Si vous voulez travailler avec seulement la base de données InMemory et ne pas installer mysql. Dans le fichier pom.xml décommentez ces lignes : 
+    <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+            <version>1.4.199</version>
+    Et Commentez ces lignes: 
+    <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+  
+    Ensuite dans un terminal, placez vous dans le dossier backend. 
+    Tapez la commande mvn clean install(Vous devez avoir installer maven)
+    Un dossier target sera généré aven un jar dedans
+    Lacez l'application java : java -jar <nomDuJar>.jar
+    Si vous avez déjà travailler avec eclipse ou intelliJ vous pouvez bien lancez le backend à partir de l'un de ces IDE. 
+    
+
 -Ensuite lancer la partie frontend, rendez vous le dossier frontend:
   npm install
   npm start
   
+N'oubliez pas de tester les deux branches.
+
 Si vous rencontrez des problèmes, n'hésitez pas à nous contacter : 
 - amine.benabdallah@imt-altantique.net
 - hamid.massaoud@imt-atlantique.net
